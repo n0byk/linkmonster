@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Список категорий</title>
+  <meta name="description" content="Каталог сылок">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="public/static/css/milligram.min.css">
+
+</head>
+<body>
+
+
+    {{range .}}
+	<p >{{.Urllink}} </p>
+    <p >{{.Title  }} </p>
+    <p >{{.Ico   }} </p>
+    <p >{{.Adddate }} </p>
+    <p >{{.Descriptionshort }} </p>
+	<p >{{.Descriptionfull }} </p>
+	<p >{{.Visits }}</p>
+{{end}}
+</body>
+</html>
