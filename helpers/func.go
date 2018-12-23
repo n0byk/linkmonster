@@ -21,3 +21,10 @@ func ExitOnFailure(err error) {
 	fmt.Fprintf(os.Stderr, "[CRIT] %s. ", err.Error())
 	os.Exit(1)
 }
+
+// Дописать обработчик ошибок
+func CheckErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}

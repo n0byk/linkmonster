@@ -30,6 +30,8 @@ func GetCategories() ([]Cat_tree, error) {
 	if err = rows.Err(); err != nil {
 		return nil, err
 	}
-
+	//fmt.Println(categories)
+	//printTree(categories, 0, 1)
 	return categories, nil
+
 }

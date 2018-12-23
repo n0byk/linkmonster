@@ -29,7 +29,7 @@ select * from categories
 DROP TABLE IF EXISTS data_visits;
 CREATE TABLE data_visits (
     data_id integer NOT NULL,
-    user_hash CHAR(32) NULL DEFAULT NULL,
+    user_hash CHAR(32) NULL DEFAULT NULL
 );
 
 

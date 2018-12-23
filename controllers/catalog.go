@@ -25,7 +25,9 @@ func Catalog(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
 	}
+
 	pagedata := PageData{Title: "Каталог - главная страница", Description: "Полезная инфо", Categories: categories}
+
 	config.TPL.ExecuteTemplate(w, "catalog.html", pagedata)
 
 }

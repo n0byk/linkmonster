@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"../config"
-	"../helpers"
 )
 
 type GetifobyUID struct {
@@ -32,20 +31,24 @@ func ShowSingleData(r *http.Request) (GetifobyUID, error) {
 	if err != nil {
 		return singledata, err
 	}
+	/*	//counter update
+		userip := helpers.GetMD5Hash(r.Referer())
+		fmt.Println(userip)
 
-	//counter update
-	userip := helpers.GetMD5Hash(r.Referer())
-	result, err := config.DB.Exec("SELECT COUNT(data_id) FROM data_visits WHERE  data_id = '$1' and user_hash = '$2'", getinfo, userip)
-	if result != nil {
-		_, err = config.DB.Exec("INSERT INTO data_visits (data_id, user_hash) VALUES ($1, $2)", getinfo, userip)
-		if err != nil {
-			return singledata, errors.New("500. Internal Server Error." + err.Error())
+		num := 0
+		rows := config.DB.QueryRow("SELECT COUNT(data_id) FROM data_visits WHERE  data_id = '$1' AND user_hash = '$2'", getinfo, userip)
+		counter := rows.Scan(&num)
+		fmt.Println(counter)
+		if counter == nil {
+			_, err = config.DB.Exec("INSERT INTO data_visits (data_id, user_hash) VALUES ($1, $2)", getinfo, userip)
+			if err != nil {
+				return singledata, errors.New("500. Internal Server Error." + err.Error())
+			}
+			_, err = config.DB.Exec("UPDATE catalog_data SET visits = visits + 1 WHERE data_id = $1", getinfo)
+			if err != nil {
+				return singledata, errors.New("500. Internal Server Error." + err.Error())
+			}
 		}
-		_, err = config.DB.Exec("UPDATE catalog_data SET visits = visits + 1")
-		if err != nil {
-			return singledata, errors.New("500. Internal Server Error." + err.Error())
-		}
-	}
-
+	*/
 	return singledata, nil
 }
