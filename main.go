@@ -16,6 +16,7 @@ func main() {
 	http.HandleFunc("/about", controllers.AboutProcess)
 	http.HandleFunc("/new", controllers.JustAdded)
 	http.HandleFunc("/search", controllers.SearchProcess)
+	http.HandleFunc("/incat", controllers.GetAllFromCat)
 
 	//	get CSS & JS & ICONs
 	http.HandleFunc("/public/static/css/skeleton.css", controllers.GetCssSkeleton)

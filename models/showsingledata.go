@@ -1,11 +1,11 @@
 package models
 
 import (
-	"errors"
 	"net/http"
 	"strings"
 
 	"../config"
+	"../helpers"
 )
 
 type GetifobyUID struct {
@@ -18,11 +18,12 @@ type GetifobyUID struct {
 	Visits           int
 }
 
-func ShowSingleData(r *http.Request) (GetifobyUID, error) {
+func ShowSingleData(w http.ResponseWriter, r *http.Request) (GetifobyUID, error) {
 	singledata := GetifobyUID{}
 	getinfo := strings.TrimSpace(r.FormValue("getinfo"))
 	if getinfo == "" {
-		return singledata, errors.New("400. Bad Request.")
+		helpers.ShowError(w, "404")
+		return singledata, nil
 	}
 
 	row := config.DB.QueryRow("SELECT 	url, title, ico, add_date, description_short, description_full, visits FROM catalog_data WHERE data_id = $1 and active = true", getinfo)

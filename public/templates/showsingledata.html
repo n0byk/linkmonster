@@ -1,10 +1,21 @@
-{{ template "header.html" }}
+{{ template "header.html"  .}}
 
-	<p >{{.Urllink}} </p>
-    <p >{{.Title  }} </p>
-    <p >{{.Ico   }} </p>
-    <p >{{.Adddate }} </p>
-    <p >{{.Descriptionshort }} </p>
-	<p >{{.Descriptionfull }} </p>
-	<p >{{.Visits }}</p>
-{{ template "footer.html" }}
+
+
+<div class="container">
+<h3 class="section-heading">{{.Singledata.Urllink}} </h3>
+<p class="section-description">{{.Singledata.Descriptionshort}}</p>
+<a class="button button-primary" href="http://getskeleton.com">View Skeleton Docs</a>
+
+
+	<p >{{.Singledata.Urllink}} </p>
+    <p >{{.Singledata.Title}} </p>
+    <p >{{.Singledata.Ico}}</p>
+    <p >{{.Singledata.Adddate}} </p>
+    <p >{{.Singledata.Descriptionshort}} </p>
+	<p >{{.Singledata.Descriptionfull}} </p>
+	<p >{{.Singledata.Visits}}</p>
+
+</div>
+
+{{ template "footer.html"  .}}

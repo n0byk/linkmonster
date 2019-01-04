@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"../config"
+	"../helpers"
 	"../models"
 )
 
@@ -13,16 +14,16 @@ type PageData struct {
 	Categories  []models.Cat_tree
 }
 
-//Вывод категорний и подкатегорий
+//Catalog Вывод категорний и подкатегорий
 func Catalog(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
+		helpers.ShowError(w, "405")
 		return
 	}
 
 	categories, err := models.GetCategories()
 	if err != nil {
-		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
+		helpers.ShowError(w, "500")
 		return
 	}
 

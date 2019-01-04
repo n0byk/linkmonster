@@ -5,26 +5,30 @@ import (
 	"net/http"
 
 	"../config"
+	"../helpers"
 	"../models"
 )
 
-//  Show Получение информации с конкретным ID
+type PageDataSingle struct {
+	Title       string
+	Description string
+	Singledata  models.GetifobyUID
+}
+
+// Show Получение информации с конкретным ID
 func Show(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
+		helpers.ShowError(w, "405")
 		return
 	}
 
-	singledata, err := models.ShowSingleData(r)
-	switch {
-	case err == sql.ErrNoRows:
-		http.NotFound(w, r)
-		return
-	case err != nil:
-		ShowError(w, "404")
+	singledata, err := models.ShowSingleData(w, r)
 
-		//http.Redirect(w, r, "/404", http.StatusTemporaryRedirect)
+	if err == sql.ErrNoRows || err != nil {
+		helpers.ShowError(w, "404")
 		return
 	}
-	config.TPL.ExecuteTemplate(w, "showsingledata.html", singledata)
+
+	pagedatasingle := PageDataSingle{Title: "Каталог - главная страница", Description: "Полезная инфо", Singledata: singledata}
+	config.TPL.ExecuteTemplate(w, "showsingledata.html", pagedatasingle)
 }

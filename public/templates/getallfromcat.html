@@ -1,0 +1,20 @@
+
+{{ template "header.html" .}}
+
+{{if not .Page.IsFirst}}[First](1){{end}}
+{{if .Page.HasPrevious}}[Previous]({{.Page.Previous}}){{end}}
+
+{{range .Page.Pages}}
+	{{if eq .Num -1}}
+	...
+	{{else}}
+	{{.Num}}{{if .IsCurrent}}(current){{end}}
+	{{end}}
+{{end}}
+
+{{if .Page.HasNext}}[Next]({{.Page.Next}}){{end}}
+{{if not .Page.IsLast}}[Last]({{.Page.TotalPages}}){{end}}
+
+
+
+{{ template "footer.html" .}}

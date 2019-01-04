@@ -1,5 +1,6 @@
 package controllers
 
+//Контроллер отдает страницу о провекте
 import (
 	"net/http"
 
