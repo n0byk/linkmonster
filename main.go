@@ -19,7 +19,7 @@ func main() {
 	http.HandleFunc("/incat", controllers.GetAllFromCat)
 
 	//	get CSS & JS & ICONs
-	http.HandleFunc("/public/static/css/skeleton.css", controllers.GetCssSkeleton)
+	http.HandleFunc("/public/static/css/bare.min.css", controllers.GetCssSkeleton)
 	http.HandleFunc("/public/static/css/normalize.css", controllers.GetCssNormalize)
 	http.HandleFunc("/favicon.ico", controllers.GetFavIcon)
 

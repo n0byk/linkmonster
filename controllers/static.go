@@ -8,7 +8,7 @@ func GetCssNormalize(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "public/static/css/normalize.css")
 }
 func GetCssSkeleton(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "public/static/css/skeleton.css")
+	http.ServeFile(w, r, "public/static/css/bare.min.css")
 }
 func GetFavIcon(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "public/static/img/favicon.ico")

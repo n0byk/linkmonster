@@ -1,63 +1,21 @@
 {{ template "header.html" .}}
-<div class="container">
-    <div class="row">
-        <!-- Lists -->
-          <h6>Категории</h6>
-          <div class="row">
-            <div class="six columns">
-              <ul>
-                <li>Unordered lists have basic styles</li>
-                <li>
-                  They use the circle list style
-                  <ul>
-                    <li>Nested lists styled to feel right</li>
-                    <li>Can nest either type of list into the other</li>
-                  </ul>
-                </li>
-                <li>Just more list items mama san</li>
-              </ul>
-            </div>
-            <div class="six columns">
-              <ol>
-                <li>Ordered lists also have basic styles</li>
-                <li>
-                  They use the decimal list style
-                  <ul>
-                    <li>Ordered and unordered can be nested</li>
-                    <li>Can nest either type of list into the other</li>
-                  </ul>
-                </li>
-                <li>Last list item just for the fun</li>
-              </ol>
-            </div>
-          </div>
+
+<section>
+	<h1>Категории</h1><hr>
+
+	<grid>{{range .Categories}}
+		<div col="1/3">
+			<h3>{{ .Cat_name}}</h3>
+
+
+            <p><a href="/show?getinfo={{ .Cat_id}}">{{ .Cat_id}}</a> - {{ .Parent_id}} - {{ .Cat_name}} <a href="/show?getinfo={{ .Cat_id}}">Показать</a></p>
+
+		</div>
+{{end}}</grid>
+</section>
 
 
 
-    {{range .Categories}}
-    <p><a href="/show?getinfo={{ .Cat_id}}">{{ .Cat_id}}</a> - {{ .Parent_id}} - {{ .Cat_name}} <a href="/show?getinfo={{ .Cat_id}}">Показать</a>
-    {{end}}
-
-    </div>
-    </div>
-
-    <div class="container">
-    <h3 class="section-heading">Need help getting started?</h3>
-    <p class="section-description">Skeleton is an amazingly easy place to start with responsive development. If you want to learn more, just visit the documentation!</p>
-    <a class="button button-primary" href="http://getskeleton.com">View Skeleton Docs</a>
-    </div>
 
 
-    <div class="container">
-    <h3 class="section-heading">Responsive Images</h3>
-    <p class="section-description">Skeleton images sit easily in grid with .u-max-full-width class. I suggest exploring solution to serving different images based on device size.</p>
-    <div class="row">
-      <div class="one-half column category">
-        <img class="u-max-full-width" src="images/placeholder.png">
-      </div>
-      <div class="one-half column category">
-        <img class="u-max-full-width" src="images/placeholder.png">
-      </div>
-    </div>
-    </div>
 {{ template "footer.html" .}}

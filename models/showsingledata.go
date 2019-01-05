@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"../config"
-	"../helpers"
 )
 
 type GetifobyUID struct {
@@ -21,11 +20,11 @@ type GetifobyUID struct {
 func ShowSingleData(w http.ResponseWriter, r *http.Request) (GetifobyUID, error) {
 	singledata := GetifobyUID{}
 	getinfo := strings.TrimSpace(r.FormValue("getinfo"))
-	if getinfo == "" {
+	/*if getinfo == "" {
 		helpers.ShowError(w, "404")
 		return singledata, nil
 	}
-
+	*/
 	row := config.DB.QueryRow("SELECT 	url, title, ico, add_date, description_short, description_full, visits FROM catalog_data WHERE data_id = $1 and active = true", getinfo)
 
 	err := row.Scan(&singledata.Urllink, &singledata.Title, &singledata.Ico, &singledata.Adddate, &singledata.Descriptionshort, &singledata.Descriptionfull, &singledata.Visits)

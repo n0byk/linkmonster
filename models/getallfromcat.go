@@ -16,6 +16,7 @@ func GetAllFromCat(n int) ([]GetifobyUID, error) {
 	newdata := make([]GetifobyUID, 0)
 	for rows.Next() {
 		new := GetifobyUID{}
+
 		err := rows.Scan(&new.Urllink, &new.Title, &new.Ico, &new.Adddate, &new.Descriptionshort, &new.Descriptionfull, &new.Visits)
 		if err != nil {
 			return nil, err

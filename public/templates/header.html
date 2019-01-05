@@ -1,34 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype HTML>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>{{ .Title }}</title>
-  <meta name="description" content="{{ .Description }}">
-  <meta name="author" content="">
+    <!-- head -->
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html lang="en">
+    <head>
+    	<title>{{ .Title }}</title>
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    	<!-- meta -->
+    	<meta charset=utf-8>
+    	<meta name="description" content="{{ .Description }}">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    	<!-- css -->
+ <link rel="stylesheet" href="public/static/css/bare.min.css">
+    </head>
 
- <link rel="stylesheet" href="public/static/css/normalize.css">
- <link rel="stylesheet" href="public/static/css/skeleton.css">
+    <!-- body -->
 
-  <!-- Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <body>
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="../../dist/images/favicon.png">
+    <!-- nav -->
 
-</head><body>
+    <nav><!-- use fx attribute for fixed positioning -->
+    	<label>
+    		<input type="checkbox">
+    		<header>
+    			<a href="/">Link_Monster</a>
+    		</header>
+
+    		<ul>
+    			<li><a href="/new">Новые</a></li>
+    			<li><a href="/search">Поиск</a></li>
+    			<li>
+    				<a>...</a>
+    				<menu>
+    					<menuitem><a href="/about">О Нас</a></menuitem>
+    					<menuitem><a href="/help">Помошь</a></menuitem>
+    					<menuitem><a href="/add">Добавить</a></menuitem>
+    				</menu>
+    			</li>
+    		</ul>
+    	</label>
+    </nav>

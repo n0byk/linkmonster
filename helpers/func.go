@@ -38,8 +38,7 @@ func ShowError(w http.ResponseWriter, number string) {
 }
 
 //Metric удобный вид больших цифр
-func Metric(n int64) string {
-
+func Metric(n int) string {
 	switch {
 	case n >= 1000:
 		return fmt.Sprint(n/1000, "k")

@@ -1,27 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+{{ template "header.html" .}}
 
-  <title>Список категорий</title>
-  <meta name="description" content="Каталог сылок">
-  <meta name="author" content="SitePoint">
+<section>
+	<h1>Последние добавленные</h1><hr>
+	<grid>{{range .Newdata}}
+		<div col="1">
+			<h3>{{.Title}}</h3>
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-  <link rel="stylesheet" href="public/static/css/milligram.min.css">
+            <p >{{.Urllink}} </p>
+            <p >{{.Title  }} </p>
+            <p >{{.Ico   }} </p>
+            <p >{{.Adddate }} </p>
+            <p >{{.Descriptionshort }} </p>
+        	<p >{{.Descriptionfull }} </p>
+        	<p >{{.Visits }}</p>
 
-</head>
-<body>
+		</div>
+{{end}}</grid>
+</section>
 
 
-    {{range .}}
-	<p >{{.Urllink}} </p>
-    <p >{{.Title  }} </p>
-    <p >{{.Ico   }} </p>
-    <p >{{.Adddate }} </p>
-    <p >{{.Descriptionshort }} </p>
-	<p >{{.Descriptionfull }} </p>
-	<p >{{.Visits }}</p>
-{{end}}
-</body>
-</html>
+
+{{ template "footer.html" .}}

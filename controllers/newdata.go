@@ -8,6 +8,12 @@ import (
 	"../models"
 )
 
+type PageDataNew struct {
+	Title       string
+	Description string
+	Newdata     []models.GetifobyUID
+}
+
 // JustAdded Получение последних N  добавленных записей DEFAULT == 20
 func JustAdded(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
@@ -20,6 +26,6 @@ func JustAdded(w http.ResponseWriter, r *http.Request) {
 		helpers.ShowError(w, "404")
 		return
 	}
-
-	config.TPL.ExecuteTemplate(w, "new.html", newdata)
+	pagedatanew := PageDataNew{Title: "Каталог - главная страница", Description: "Полезная инфо", Newdata: newdata}
+	config.TPL.ExecuteTemplate(w, "new.html", pagedatanew)
 }
